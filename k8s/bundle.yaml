@@ -21,10 +21,10 @@ spec:
         - --backend.url=http://127.0.0.1:5678/
         - --listen.ringpop=:5000
         - --listen.debug=:6000
-        - --discovery.dns.host=ringpop.monitoring.svc.cluster.local
+        - --discovery.dns.host=ringpop.namespace.svc.cluster.local
         - --discovery.dns.port=5000
         - --log.level=4
-        image: http-ringpop:1.0.0
+        image: ozonru/http-ringpop:1.0.0
         imagePullPolicy: Always
         name: rp
         ports:

@@ -99,3 +99,5 @@ will return list of A-records for all service endpoints.
 make build
 docker build -t http-ringpop:1.0.0 .
 ```
+
+Pre-built image on Dockerhub: [ozonru/http-ringpop:1.0.0](https://hub.docker.com/r/ozonru/http-ringpop)
