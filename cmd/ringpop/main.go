@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/ozonru/http-ringpop/backend"
-	"github.com/ozonru/http-ringpop/discovery"
-	ringhttp "github.com/ozonru/http-ringpop/http"
-	"github.com/ozonru/http-ringpop/pkg/metrics"
-	"github.com/ozonru/http-ringpop/ring"
+	"github.com/ozontech/http-ringpop/backend"
+	"github.com/ozontech/http-ringpop/discovery"
+	ringhttp "github.com/ozontech/http-ringpop/http"
+	"github.com/ozontech/http-ringpop/pkg/metrics"
+	"github.com/ozontech/http-ringpop/ring"
 
 	"github.com/sirupsen/logrus"
 	"github.com/uber-common/bark"

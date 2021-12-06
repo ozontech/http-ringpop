@@ -7,7 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/ozonru/http-ringpop/pkg/metrics"
+	"github.com/ozontech/http-ringpop/pkg/metrics"
 
 	"github.com/uber-common/bark"
 	"github.com/uber/tchannel-go"

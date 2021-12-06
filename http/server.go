@@ -7,8 +7,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/ozonru/http-ringpop/pkg/metrics"
-	"github.com/ozonru/http-ringpop/ring"
+	"github.com/ozontech/http-ringpop/pkg/metrics"
+	"github.com/ozontech/http-ringpop/ring"
 
 	"github.com/uber-common/bark"
 	"github.com/uber/ringpop-go"
@@ -21,7 +21,7 @@ const (
 )
 
 var (
-	metricHTTPRequestsTotal = metrics.MustRegisterCounter("http_requests_total", "Total number of received HTTP requests")
+	metricHTTPRequestsTotal               = metrics.MustRegisterCounter("http_requests_total", "Total number of received HTTP requests")
 	metricRequestsForwardedToBackendTotal = metrics.MustRegisterCounter("requests_forwarded_to_backend_total", "Total number of requests forwarded to HTTP backend")
 	metricRequestsForwardedToRingpopTotal = metrics.MustRegisterCounter("requests_forwarded_to_ringpop_total", "Total number of requests forwarded to ringpop")
 )
@@ -78,7 +78,7 @@ func (srv *HTTPServer) Handle(w http.ResponseWriter, r *http.Request) {
 
 		// ServeHTTP request on this instance
 		srv.backend.ServeHTTP(w, r)
-		
+
 		metricRequestsForwardedToBackendTotal.Inc()
 
 		return

@@ -1,11 +1,20 @@
 # Ringpop sidecar for HTTP backend
 
+# Overview
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/ozontech/example-repo/graphs/commit-activity)
+
+`http-ringpop` is a small reverse-proxy that makes it easy to shard incoming requests across 
+multiple backends. You decide what sharding logic you need. 
+
+## Motivation
+
 Initial issue - spread out incoming HTTP requests from different clients between
 different instances of application. Requests from one client should be handled 
 on the same backend.
 
-This small application solves this problem in following way:
-- it works as a proxy (sidecar) in front of your HTTP backend instance
+## Features
+
+- `http-ringpop` works as a proxy (sidecar) in front of your HTTP backend instance
 - when it receives request - it decides what backend instance should handle
 this request (based on incoming IP)
 - if request should be hanlded on local backend - it forwards request to it.
@@ -44,8 +53,8 @@ This application is based on [Uber's Ringpop](https://eng.uber.com/intro-to-ring
 
 Build
 ```bash
-GO111MODULE=on go build -o simple-backend cmd/backend-example/main.go
-GO111MODULE=on go build -o ringpop cmd/ringpop/main.go
+go build -o simple-backend cmd/backend-example/main.go
+go build -o ringpop cmd/ringpop/main.go
 ```
 
 Run 3 HTTP backends:
@@ -67,7 +76,7 @@ Test
 curl http://localhost:3000/ -i
 ```
 
-You will see smth like that (request received by one instance but handled by another):
+You will see something like that (request received by one instance but handled by another):
 ```bash
 HTTP/1.1 200 OK
 Content-Length: 50
@@ -100,4 +109,8 @@ make build
 docker build -t http-ringpop:1.0.0 .
 ```
 
-Pre-built image on Dockerhub: [ozonru/http-ringpop:1.0.0](https://hub.docker.com/r/ozonru/http-ringpop)
+Pre-built image on Dockerhub: [ozontech/http-ringpop:1.0.0](https://hub.docker.com/r/ozonru/http-ringpop)
+
+## License
+
+[APACHE LICENSE, VERSION 2.0](https://www.apache.org/licenses/LICENSE-2.0)

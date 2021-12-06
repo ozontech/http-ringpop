@@ -24,7 +24,7 @@ spec:
         - --discovery.dns.host=ringpop.namespace.svc.cluster.local
         - --discovery.dns.port=5000
         - --log.level=4
-        image: ozonru/http-ringpop:1.0.0
+        image: ozontech/http-ringpop:1.0.0
         imagePullPolicy: Always
         name: rp
         ports:
