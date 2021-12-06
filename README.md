@@ -49,7 +49,7 @@ This application is based on [Uber's Ringpop](https://eng.uber.com/intro-to-ring
 └────────────────┘     └────────────────┘     └────────────────┘
 ```
 
-## Example
+## Quick start
 
 Build
 ```bash
@@ -101,15 +101,34 @@ Also, one important thing is that you should use `ClusterIP: none` for service,
 that will be used for DNS discovery, because in this case `nslookup myawesomeservice` 
 will return list of A-records for all service endpoints.
 
-
-## Dockerization
+## Build & test
 
 ```bash
+make test
 make build
 docker build -t http-ringpop:1.0.0 .
 ```
 
 Pre-built image on Dockerhub: [ozontech/http-ringpop:1.0.0](https://hub.docker.com/r/ozonru/http-ringpop)
+
+## Flags
+```
+Flags:
+      --listen.http= ...         hostPort to listen calls from incoming 
+                                 http requests. By default ":3000".
+      --backend.url= ...         URL of your http backend.
+                                 By default "http://127.0.0.1:4000/".
+      --listen.ringpop= ...      hostPort to listen gossip requests inside 
+                                 hashring. By default ":5000".
+      --listen.debug= ...        hostPort to listen calls from incoming debug 
+                                 http requests (metrics, etc.).
+                                 By default ":6000".
+      --log.level= ...           Log level, by default - INFO (4).
+      --discovery.json.file= ... Discovery hosts from static file.
+      --discovery.dns.host= ...  Discovery hosts from DNS by hostname.
+      --discovery.dns.port= ...  Ringpop port that will be added to discovered 
+                                 hosts from DNS.
+```
 
 ## License
 
